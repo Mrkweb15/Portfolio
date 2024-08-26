@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
+    <style>
+      /* Define swipe-up animation */
+      @keyframes swipeUp {
+          from {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Define swipe-down animation */
+      @keyframes swipeDown {
+          from {
+              opacity: 0;
+              transform: translateY(0);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(50px);
+          }
+      }
+
+      /* Initial hidden state for swipe animations */
+      .fade-in {
+          opacity: 0;
+          transform: translateY(50px);
+          transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+      }
+
+      /* Visible state with swipe-up animation */
+      .fade-in.swipe-up {
+          animation: swipeUp 0.6s ease-out forwards;
+      }
+
+      /* Hidden state with swipe-down animation */
+      .fade-in.swipe-down {
+          animation: swipeDown 0.6s ease-out forwards;
+      }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 snap-y snap-mandatory h-screen overflow-y-scroll">
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="min-h-screen flex flex-col md:flex-row items-center p-8 md:p-16 bg-gray-800 text-white">
+        <div class="md:w-1/2 fade-in">
+            <img src="img/Profile.jpg" alt="Your Image" class="rounded-full w-64 h-64 object-cover mx-auto md:mx-120 md:w-96 md:h-96">
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0 text-center md:text-left fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold">Mark Esquivel</h1>
+            <p class="mt-4 text-xl md:text-2xl">Web Developer</p>
+            <p class="mt-4">I love studying old staffs to create new staffs.</p>
+            <!-- Social Media Icons -->
+            <div class="mt-6 flex justify-center md:justify-start space-x-4">
+                <a href="https://www.facebook.com/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://discord.com/users/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://t.me/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://github.com/yourprofile" target="_blank" class="text-2xl hover:text-gray-400">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-8 fade-in">About Me</h2>
+            <p class="text-lg md:text-xl text-center leading-relaxed fade-in">
+                I am a dedicated developer with experience in creating web applications using modern technologies.
+                My journey in development started 6 years ago, and I have been constantly learning and improving my skills.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-8 fade-in">Skills</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="m-4 p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 hover:bg-gray-100 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold text-center mb-4">HTML & CSS</h3>
+                    <p class="text-center">Experienced in building responsive and modern web layouts.</p>
+                </div>
+                <div class="m-4 p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 hover:bg-gray-100 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold text-center mb-4">JavaScript</h3>
+                    <p class="text-center">Proficient in JavaScript and frameworks like React.</p>
+                </div>
+                <div class="m-4 p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 hover:bg-gray-100 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold text-center mb-4">Java</h3>
+                    <p class="text-center">Experienced in backend development with Spring and Hibernate.</p>
+                </div>
+                <div class="m-4 p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 hover:bg-gray-100 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold text-center mb-4">C#</h3>
+                    <p class="text-center">Proficient in building applications with .NET Framework.</p>
+                </div>
+                <div class="m-4 p-6 bg-white rounded-lg shadow-lg w-full md:w-1/4 hover:bg-gray-100 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold text-center mb-4">MySQL</h3>
+                    <p class="text-center">Skilled in database design, optimization, and management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-8 fade-in">Projects</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="m-4 p-6 bg-gray-100 rounded-lg shadow-lg w-full md:w-1/3 hover:bg-gray-200 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Computer Shop Management and Monitoring System</h3>
+                    <p>A Windows application created with Java. Designed to monitor and manage a computer shop with user and admin login with well designed database.</p>
+                </div>
+                <div class="m-4 p-6 bg-gray-100 rounded-lg shadow-lg w-full md:w-1/3 hover:bg-gray-200 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Database for Police Management System</h3>
+                    <p>A database designed for a optimized management of records in Police Management system.</p>
+                </div>
+                <div class="m-4 p-6 bg-gray-100 rounded-lg shadow-lg w-full md:w-1/3 hover:bg-gray-200 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">HTML Notepad and Calculator</h3>
+                    <p>Using HTML, CSS, and JavaScript, I made these two as my starter projects to enhance my knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-8 fade-in">Contact</h2>
+            <form class="w-full max-w-lg mx-auto">
+                <div class="flex flex-wrap mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2 fade-in" for="name">
+                            Name
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-600 fade-in" id="name" type="text" placeholder="Your Name">
+                    </div>
+                </div>
+                <div class="flex flex-wrap mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2 fade-in" for="email">
+                            Email
+                        </label>
+                        <input class="appearance-none block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-600 fade-in" id="email" type="email" placeholder="Your Email">
+                    </div>
+                </div>
+                <div class="flex flex-wrap mb-6">
+                    <div class="w-full px-3">
+                        <label class="block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2 fade-in" for="message">
+                            Message
+                        </label>
+                        <textarea class="appearance-none block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-600 fade-in" id="message" placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="flex justify-center fade-in">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Send Message
+                  </button>
+              </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
