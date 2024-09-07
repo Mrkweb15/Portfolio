@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form</title>
     <style>
-        *{
+        * {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            box-sizing: border-box;
         }
         body {
             display: flex;
@@ -18,67 +19,65 @@
         }
         .container {
             background-color: rgb(61, 164, 255);
-            width: 500px;
-            height: auto;
+            width: 90%;
+            max-width: 500px;
             padding: 20px;
             border-radius: 8px;
-            display: block;
-            justify-content: center;
-            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         form {
             border: 2px solid black;
             padding: 20px; 
             border-radius: 8px;
+            display: flex;
+            flex-direction: column;
         }
         h1 {
-            display: block;
-            position: absolute;
-            margin-top: -40px;
+            text-align: center;
+            margin: 0 0 20px;
             background-color: rgb(61, 164, 255);
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
         }
 
         /*Name*/
         .name {
             display: flex;
             flex-direction: column;
-            margin-top: 10px;
         }
         .name .field {
             display: flex;
-            align-items: center;
-            margin-bottom: 5px;
+            flex-direction: column;
+            margin-bottom: 10px;
         }
         .name .field label {
-            width: 150px;
-            margin-right: 10px;
-            text-align: left; 
+            margin-bottom: 5px;
             font-weight: bold;
             color: #ffffff;
         }
         .name .field input {
-            padding: 5px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            width: calc(100% - 160px); 
+            width: 100%;
         }
 
         /*Info*/
         .info {
             display: flex;
             flex-direction: row;
-            text-align: left;
             margin: 20px;
             color: #ffffff;
-            padding: 20px; 
+            padding: 10px; 
             border-radius: 8px;
+            gap: 20px
         }
         .info .ayecolor, .info .pets {
-            margin-right: 40px;
+            margin-bottom: 20px;
         }
         .info h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
+            margin: 0 0 10px;
         }
         .radio-group, .check-group {
             margin-bottom: 10px; 
@@ -90,20 +89,15 @@
         /*Languages*/
         .language {
             color: #ffffff;
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            max-width: 300px;
-            width: 100%;
+            max-width: 100%;
         }
         .language h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0 0 10px;
         }
         .language select {
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #fff;
@@ -111,21 +105,17 @@
             width: 100%;
             font-size: 14px;
             height: 35px;
-            box-sizing: border-box;
         }
 
         /*Message*/
         .mess {
             color: #ffffff;
             border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            max-width: 500px;
-            width: 100%;
+            padding: 10px;
+            max-width: 100%;
         }
         .mess h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
+            margin: 0 0 10px;
         }
         .mess textarea {
             padding: 10px; 
@@ -136,20 +126,15 @@
             width: 100%;
             height: 150px; 
             font-size: 14px; 
-            box-sizing: border-box;
             resize: vertical;
         }
 
         /*Button*/
         .btn {
-            display: block;
-            padding: 10px 20px;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
-
         .btn button {
             background-color: #007bff;
             color: #ffffff;
@@ -184,66 +169,63 @@
             </div>
 
             <div class="info">
-                
-                    <div class="ayecolor">
-                        <h3>Eye Color:</h3>
-                        <div class="radio-group">
-                            <input type="radio" id="brown" name="eye-color" value="Brown">
-                            <label for="brown">Brown</label>
-                        </div>
-                        <div class="radio-group">
-                            <input type="radio" id="blue" name="eye-color" value="Blue">
-                            <label for="blue">Blue</label>
-                        </div>
-                        <div class="radio-group">
-                            <input type="radio" id="green" name="eye-color" value="Green">
-                            <label for="green">Green</label>
-                        </div>
-                        <div class="radio-group">
-                            <input type="radio" id="other" name="eye-color" value="Other">
-                            <label for="other">Other</label>
-                        </div>
+                <div class="ayecolor">
+                    <h3>Eye Color:</h3>
+                    <div class="radio-group">
+                        <input type="radio" id="brown" name="eye-color" value="Brown">
+                        <label for="brown">Brown</label>
                     </div>
-
-               
+                    <div class="radio-group">
+                        <input type="radio" id="blue" name="eye-color" value="Blue">
+                        <label for="blue">Blue</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="green" name="eye-color" value="Green">
+                        <label for="green">Green</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="other" name="eye-color" value="Other">
+                        <label for="other">Other</label>
+                    </div>
+                </div>
                 <div class="pets">
                     <h3>My Pets:</h3>
                     <div class="check-group">
-                        <input type="checkbox" id="" name="Dog" value="">
-                        <label for="Dog">Dog</label>
+                        <input type="checkbox" id="dog" name="pet" value="Dog">
+                        <label for="dog">Dog</label>
                     </div>
                     <div class="check-group">
-                        <input type="checkbox" id="" name="Cat" value="">
-                        <label for="Cat">Cat</label>
+                        <input type="checkbox" id="cat" name="pet" value="Cat">
+                        <label for="cat">Cat</label>
                     </div>
                     <div class="check-group">
-                        <input type="checkbox" id="" name="Hamster" value="">
-                        <label for="Hamster">Hamster</label>
+                        <input type="checkbox" id="hamster" name="pet" value="Hamster">
+                        <label for="hamster">Hamster</label>
                     </div>
                     <div class="check-group">
-                        <input type="checkbox" id="" name="Fish" value="">
-                        <label for="Fish">Fish</label>
+                        <input type="checkbox" id="fish" name="pet" value="Fish">
+                        <label for="fish">Fish</label>
                     </div>
                 </div>
             </div>
 
             <div class="language">
                 <h3>Foreign language spoken:</h3>
-                <select name="" id="">
-                    <option value="">Chinese</option>
-                    <option value="">Japanese</option>
-                    <option value="">Korean</option>
-                    <option value="">Mandarin</option>
+                <select name="language" id="language">
+                    <option value="Chinese">Chinese</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Mandarin">Mandarin</option>
                 </select>
             </div>
 
             <div class="mess">
                 <h3>Tell me more about yourself</h3>
-                <textarea name="" id="" placeholder="Type here"></textarea>
+                <textarea name="message" id="message" placeholder="Type here"></textarea>
             </div>
-            
+
             <div class="btn">
-                <button>All Done</button>
+                <button type="submit">All Done</button>
             </div>
         </form>
     </div>
