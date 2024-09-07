@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="tailwind.css">
     <style>
-html{
-scroll-behavior: smooth;
-}
         .navbar-menu {
             display: none;
         }
@@ -239,13 +236,34 @@ scroll-behavior: smooth;
     </section>
 
     <!-- About Me Section -->
-    <section id="about" class="py-20 bg-gray-200">
+    <section id="about" class="py-20 bg-gray-300">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-8 fade-in">About Me</h2>
             <p class="text-lg md:text-xl text-center leading-relaxed fade-in">
                 I am a dedicated developer with experience in creating web applications using modern technologies.
                 My journey in development started 3 years ago, and I have been constantly learning and improving my skills.
             </p>
+            <br><br>
+            <!-- Achievements Section -->
+            <div class="mt-50">
+                <h3 class="text-4xl font-semibold text-center mb-7 fade-in">Achievements</h3>
+
+                <!-- Achievements Row -->
+                <div class="flex flex-wrap justify-center gap-8">
+                    <!-- Achievement 1 -->
+                    <div class="bg-gradient-to-r from-purple-200 to-indigo-300 text-black shadow-lg rounded-xl p-8 w-full sm:w-1/2 md:w-1/4 lg:w-1/5 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-l cursor-pointer fade-in">
+                        <h4 class="text-xl font-bold mb-4">UIP Incorporate</h4>
+                        <p class="text-black/80">Completed an Internship with UIP Inc. as an IT Web Developer for VisVis (Aug 27, 2024)</p>
+                    </div>
+
+                    <!-- Achievement 2 -->
+                    <div class="bg-gradient-to-r from-green-200 to-teal-300 text-black shadow-lg rounded-xl p-8 w-full sm:w-1/2 md:w-1/4 lg:w-1/5 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-gradient-to-l cursor-pointer fade-in">
+                        <h4 class="text-xl font-bold mb-4">Tesda Completion</h4>
+                        <p class="text-black/80">Completed a Training for Programming Java NC3 (2024)</p>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
 
@@ -293,7 +311,9 @@ scroll-behavior: smooth;
                 </div>
                 <div class="m-4 p-6 bg-gray-100 rounded-lg shadow-lg w-full md:w-1/3 hover:bg-gray-200 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
                     <h3 class="text-2xl font-semibold mb-4">Travel Website</h3>
-                    <p>Using PHP, HTML, CSS, Bootstrap, TailWind CSS and JavaScript, I made this website during my training in TESDA as my OJT project, This website manages the overall opperation of the Travel Agency, and used toadvertise the business nationdwide.</p>
+                    <p class="text-lg text-gray-700">
+                        Using HTML, PHP, and various CSS and JS frameworks, I created a fully functional travel website for my first-ever client, a company specializing in travel services.
+                    </p>
                 </div>
                 <div class="m-4 p-6 bg-gray-100 rounded-lg shadow-lg w-full md:w-1/3 hover:bg-gray-200 hover:transform hover:scale-105 hover:-translate-y-1 transition duration-300 fade-in">
                     <h3 class="text-2xl font-semibold mb-4">Database for Police Management System</h3>
@@ -336,14 +356,23 @@ scroll-behavior: smooth;
                         <textarea class="appearance-none block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-gray-600 fade-in" id="message" placeholder="Your Message"></textarea>
                     </div>
                 </div>
-                <div class="flex justify-center fade-in">
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Send Message
-                  </button>
-              </div>
+                <div class="flex justify-center mb-6 fade-in">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Send Message
+                    </button>
+                </div>
             </form>
+    
+            <!-- Form -->
+            <div class="flex justify-center mt-5">
+                <a href="form.html" class="text-blue-500 hover:text-blue-700 font-semibold fade-in">
+                    or Tell Me About Yourself
+                </a>
+            </div>
+
         </div>
     </section>
+    
     
 </main>
     <script src="script.js"></script>
