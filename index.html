@@ -139,7 +139,7 @@
 
 
         /* Project Card Styles */
-        :root {
+         :root {
             --primary-color: #3498db;
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
@@ -153,8 +153,6 @@
         #projects {
             padding: 5rem 0;
             background-color: var(--light-color);
-            width: 100vw;
-            height: 100vh;
         }
         
         .section-title {
@@ -174,151 +172,62 @@
             border-radius: 2px;
         }
         
-        /* Gallery Column - Strictly contained with overflow hidden */
-        .gallery-column {
-            position: relative;
-            padding-right: 2rem;
-            overflow: hidden; /* Prevents overlap */
-        }
-        
-        .gallery-container {
-            position: relative;
-            height: 450px;
-            width: 100%;
+        /* Project Container */
+        .project-container {
+            max-width: 1200px;
             margin: 0 auto;
-        }
-        
-        .gallery-stack {
             position: relative;
-            height: 100%;
-            width: 100%;
-            margin-left: 0;
+            min-height: 500px;
         }
         
         .project-card {
-            position: absolute;
-            top: 0;
-            width: 280px;
-            height: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            background-color: #fff;
-            transform: scale(0.95) translateX(0);
-            opacity: 0.8;
-            transform-origin: center;
-            will-change: transform, opacity;
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
         }
         
-        /* Description Column - Strictly contained with clear separation */
-        .description-column {
-            padding-left: 2rem;
+        .project-card.active {
+            display: grid;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .project-image-container {
             height: 100%;
             display: flex;
             align-items: center;
         }
         
-        .description-container {
+        .project-image {
             width: 100%;
-            height: auto;
-            position: relative;
-        }
-        
-        .project-card img {
-            width: 100%;
-            height: 100%;
+            height: 400px;
             object-fit: cover;
-            transition: var(--transition);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
         }
         
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .card-overlay h5 {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .card-overlay .tech-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .card-overlay .tech-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.25rem 0.5rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 500;
-        }
-        
-        /* Active card styles - centered in its column */
-        .project-card.active {
-            left: 50%;
-            transform: translateX(-50%) scale(1.05);
-            opacity: 1;
-            z-index: 10;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project-card.active img {
-            transform: scale(1.02);
-        }
-        
-        .project-card.active .card-overlay {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        /* Stack layout for cards - now with proper containment */
-        .project-card:nth-child(1) { left: 0; z-index: 4; }
-        .project-card:nth-child(2) { left: 15%; z-index: 3; }
-        .project-card:nth-child(3) { left: 30%; z-index: 2; }
-        .project-card:nth-child(4) { left: 45%; z-index: 1; }
-        
-        /* Project description styles - strictly in description-column */
-        .project-description {
-            display: none;
+        .project-content {
             padding: 2rem;
             background: white;
             border-radius: 8px;
             box-shadow: var(--shadow);
-            width: 100%;
-            margin: 0;
+            height: 100%;
         }
         
-        .project-description.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .project-description h3 {
+        .project-content h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-weight: 700;
         }
         
-        .project-description .tech-list {
+        .tech-list {
             display: flex;
             gap: 0.5rem;
             margin: 1rem 0;
             flex-wrap: wrap;
         }
         
-        .project-description .tech-item {
+        .tech-item {
             background-color: var(--light-color);
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
@@ -326,7 +235,7 @@
             font-weight: 500;
         }
         
-        .project-description .btn-visit {
+        .btn-visit {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -337,21 +246,20 @@
             margin-top: 1rem;
         }
         
-        .project-description .btn-visit:hover {
+        .btn-visit:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
         }
         
-        /* Navigation controls - contained within gallery-column */
-        .gallery-controls {
+        /* Navigation controls */
+        .project-nav {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 2rem;
-            width: 100%;
         }
         
-        .control-btn {
+        .nav-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -365,49 +273,28 @@
             transition: var(--transition);
         }
         
-        .control-btn:hover {
+        .nav-btn:hover {
             background: var(--primary-color);
             color: white;
             transform: scale(1.1);
         }
         
-        /* Mobile styles with clear column separation */
+        /* Mobile styles */
         @media (max-width: 992px) {
-            .gallery-column {
-                padding-right: 0;
-                margin-bottom: 3rem;
-                height: 400px;
-            }
-            
-            .description-column {
-                padding-left: 0;
-                height: auto;
-            }
-            
-            .gallery-container {
-                height: 350px;
-            }
-            
             .project-card {
-                width: 220px;
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image {
+                height: 300px;
+            }
+            
+            .project-content {
+                padding: 1.5rem;
             }
         }
         
-        @media (max-width: 768px) {
-            .project-card {
-                width: 180px;
-            }
-            
-            .card-overlay h5 {
-                font-size: 1rem;
-            }
-            
-            .card-overlay .tech-badge {
-                font-size: 0.6rem;
-            }
-        }
-        
-        /* Animations */
+        /* Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -445,7 +332,6 @@
                 <a href="#about" class="block py-2 px-4 hover:bg-gray-700 rounded">About</a>
                 <a href="#skills" class="block py-2 px-4 hover:bg-gray-700 rounded">Skills</a>
                 <a href="#projects" class="block py-2 px-4 hover:bg-gray-700 rounded">Projects</a>
-                <a href="#contact" class="block py-2 px-4 hover:bg-gray-700 rounded">Contact</a>
             </div>
         </div>
         <!-- Drawer Menu for Mobile -->
@@ -504,31 +390,30 @@
     </script>
 
 <div class="main-display">
-        <main class="pt-16">
+    <main class="pt-16">
         <!-- Content goes here -->
 
         <section id="introduction" class="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 md:p-16 bg-gray-800 text-white relative overflow-hidden">
             <!-- Profile with floating tags -->
             <div class="relative w-64 h-64 md:w-96 md:h-96 animate-fadeIn">
                 <img src="img/Profile.jpg" alt="Profile Picture" class="rounded-full w-full h-full object-cover mx-auto shadow-xl border-4 border-white hover:border-blue-400 transition-all duration-300">
-    
             </div>
         
             <!-- Text content -->
             <div class="md:w-1/2 mt-8 md:mt-0 text-center md:text-left animate-fadeIn md:ml-12">
-            <h1 class="text-4xl md:text-6xl font-bold">Mark Esquivel</h1>
-            <p class="mt-4 text-xl md:text-2xl">Web Developer</p>
-            <p class="mt-4">I love studying old staffs to create new staffs.</p>
-        
-            <!-- Social icons -->
-            <div class="mt-6 flex justify-center md:justify-start space-x-4 text-2xl">
-                <a href="https://www.facebook.com/profile.php?id=100077566015110&mibextid=JRoKGi" target="_blank" class="hover:text-gray-400"><i class="fab fa-facebook"></i></a>
-                <a href="https://x.com/17Mr_K?t=uzAFeFaaUJ1nqizZRaRxgQ&s=09" target="_blank" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/mr.k_eh?igsh=aXh2cnlpdWticXFs" target="_blank" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
-                <a href="https://discord.com" target="_blank" class="hover:text-gray-400"><i class="fab fa-discord"></i></a>
-                <a href="https://t.me/mr_k_17" target="_blank" class="hover:text-gray-400"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/Mrkweb15" target="_blank" class="hover:text-gray-400"><i class="fab fa-github"></i></a>
-            </div>
+                <h1 class="text-4xl md:text-6xl font-bold">Mark Esquivel</h1>
+                <p class="mt-4 text-xl md:text-2xl">Web Developer</p>
+                <p class="mt-4">I love studying old staffs to create new staffs.</p>
+            
+                <!-- Social icons -->
+                <div class="mt-6 flex justify-center md:justify-start space-x-4 text-2xl">
+                    <a href="https://www.facebook.com/profile.php?id=100077566015110&mibextid=JRoKGi" target="_blank" class="hover:text-gray-400"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/17Mr_K?t=uzAFeFaaUJ1nqizZRaRxgQ&s=09" target="_blank" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/mr.k_eh?igsh=aXh2cnlpdWticXFs" target="_blank" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                    <a href="https://discord.com" target="_blank" class="hover:text-gray-400"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/mr_k_17" target="_blank" class="hover:text-gray-400"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/Mrkweb15" target="_blank" class="hover:text-gray-400"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </section>
         
@@ -610,173 +495,146 @@
         <!-- Projects Section -->
         <section id="projects" class="py-5">
             <div class="container">
-                <h2 class="text-4xl font-bold text-center mb-8 fade-in">Featured Projects</h2>
+                <h2 class="text-4xl font-bold text-center mb-8 fade-in">Featured Project</h2>
                 
-                <div class="row fade-in">
-                    <!-- Gallery Column - Self-contained with overflow hidden -->
-                    <div class="col-lg-6 gallery-column">
-                        <div class="gallery-container">
-                            <div class="gallery-stack">
-                                <!-- Project 1 -->
-                                <div class="project-card active" data-index="0">
-                                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Computer Shop System">
-                                    <div class="card-overlay">
-                                        <h5>Computer Shop System</h5>
-                                        <div class="tech-badges">
-                                            <span class="tech-badge">Java</span>
-                                            <span class="tech-badge">MySQL</span>
-                                            <span class="tech-badge">Swing</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Project 2 -->
-                                <div class="project-card" data-index="1">
-                                    <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Travel Website">
-                                    <div class="card-overlay">
-                                        <h5>Travel Website</h5>
-                                        <div class="tech-badges">
-                                            <span class="tech-badge">PHP</span>
-                                            <span class="tech-badge">JavaScript</span>
-                                            <span class="tech-badge">Bootstrap</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Project 3 -->
-                                <div class="project-card" data-index="2">
-                                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Police Management DB">
-                                    <div class="card-overlay">
-                                        <h5>Police Management DB</h5>
-                                        <div class="tech-badges">
-                                            <span class="tech-badge">SQL</span>
-                                            <span class="tech-badge">Database</span>
-                                            <span class="tech-badge">ERD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Project 4 -->
-                                <div class="project-card" data-index="3">
-                                    <img src="img/EnM.png" alt="HTML Tools">
-                                    <div class="card-overlay">
-                                        <h5>Earth and Moon Visual Simulator</h5>
-                                        <div class="tech-badges">
-                                            <span class="tech-badge">HTML</span>
-                                            <span class="tech-badge">CSS</span>
-                                            <span class="tech-badge">JavaScript</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Project 5 -->
-                                <div class="project-card" data-index="3">
-                                    <img src="img/WinUtil.png" alt="HTML Tools">
-                                    <div class="card-overlay">
-                                        <h5>PowerShell WinUtil</h5>
-                                        <div class="tech-badges">
-                                            <span class="tech-badge">ShellScript</span>
-                                            <span class="tech-badge">XML</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                <div class="project-container fade-in">
+                    <!-- Project 1 -->
+                    <div class="project-card active">
+                        <div class="project-image-container">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                alt="Computer Shop System" 
+                                class="project-image">
                         </div>
                         
-                    </div>
-                    
-                    <!-- Description Column - Self-contained -->
-                    <div class="col-lg-6 description-column">
-                        <div class="description-container">
-                            <div class="project-description active">
-                                <h3>Computer Shop System</h3>
-                                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="WinUtil Screenshot" class="img-fluid mb-3 rounded shadow">
-
-                                <p>A comprehensive desktop application developed in Java with Swing UI that manages inventory, sales, and customer data for a computer hardware shop. Features include user authentication, sales reporting, and inventory management with MySQL database integration.</p>
-                                
-                                <div class="tech-list">
-                                    <span class="tech-item">Java</span>
-                                    <span class="tech-item">Swing</span>
-                                    <span class="tech-item">MySQL</span>
-                                    <span class="tech-item">JDBC</span>
-                                    <span class="tech-item">OOP</span>
-                                </div>
+                        <div class="project-content">
+                            <h3>Computer Shop System</h3>
+                            <p>A comprehensive desktop application developed in Java with Swing UI that manages inventory, sales, and customer data for a computer hardware shop. Features include user authentication, sales reporting, and inventory management with MySQL database integration.</p>
+                            
+                            <div class="tech-list">
+                                <span class="tech-item">Java</span>
+                                <span class="tech-item">Swing</span>
+                                <span class="tech-item">MySQL</span>
+                                <span class="tech-item">JDBC</span>
+                                <span class="tech-item">OOP</span>
                             </div>
                             
-                            <div class="project-description">
-                                <h3>Travel Website</h3>
-                                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="WinUtil Screenshot" class="img-fluid mb-3 rounded shadow">
-
-                                <p>A responsive travel booking website built with PHP and JavaScript that allows users to browse destinations, book tours, and manage reservations. The site features a clean UI with Bootstrap, secure payment processing, and admin dashboard for managing bookings.</p>
-                                
-                                <div class="tech-list">
-                                    <span class="tech-item">PHP</span>
-                                    <span class="tech-item">JavaScript</span>
-                                    <span class="tech-item">Bootstrap</span>
-                                    <span class="tech-item">jQuery</span>
-                                    <span class="tech-item">MySQL</span>
-                                </div>
-                            </div>
-                            
-                            <div class="project-description">
-                                <h3>Police Management Database</h3>
-                                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="WinUtil Screenshot" class="img-fluid mb-3 rounded shadow">
-
-                                <p>A relational database system designed to manage police department records including cases, officers, evidence, and suspects. The system features complex queries, reporting functions, and a normalized database structure with proper relationships between entities.</p>
-                                
-                                <div class="tech-list">
-                                    <span class="tech-item">SQL</span>
-                                    <span class="tech-item">Database Design</span>
-                                    <span class="tech-item">Normalization</span>
-                                    <span class="tech-item">Stored Procedures</span>
-                                </div>
-                            </div>
-                            
-                            <div class="project-description">
-                                <h3>Earth and Moon 3D Visual Simulator</h3>
-                                <img src="img/EnM.png" alt="WinUtil Screenshot" class="img-fluid mb-3 rounded shadow">
-
-                                <p>
-                                    A visually engaging 3D simulation of the Earth-Moon system built with vanilla JavaScript. It demonstrates fundamental concepts in animation, rotation, and orbital mechanics using HTML5 Canvas and DOM manipulation. Ideal for educational or experimental use in astronomy visualizations.
-                                </p>
-                                
-                                <div class="tech-list">
-                                    <span class="tech-item">HTML5</span>
-                                    <span class="tech-item">CSS3</span>
-                                    <span class="tech-item">JavaScript</span>
-                                    <span class="tech-item">DOM Manipulation</span>
-                                </div>
-                            </div>
-
-                            
-                            <div class="project-description">
-                                <h3>WinUtil</h3>
-                                <img src="img/WinUtil.png" alt="WinUtil Screenshot" class="img-fluid mb-3 rounded shadow">
-    
-                                <p>WinUtil is a customizable utility script toolkit designed for Windows system automation and maintenance. It streamlines common administrative tasks such as cleaning temp files, disabling telemetry, installing essential software, and applying system optimizations — all with a single click or command.</p>
-                                
-                                <div class="tech-list">
-                                    <span class="tech-item">PowerShell</span>
-                                    <span class="tech-item">ShellScript</span>
-                                    <span class="tech-item">XML</span>
-                                </div>
-                            </div>
-
+                            <button class="btn btn-visit">
+                                <i class="fas fa-external-link-alt me-2"></i>View Project
+                            </button>
                         </div>
                     </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                alt="Travel Website" 
+                                class="project-image">
+                        </div>
+                        
+                        <div class="project-content">
+                            <h3>Travel Website</h3>
+                            <p>A responsive travel booking website built with PHP and JavaScript that allows users to browse destinations, book tours, and manage reservations. The site features a clean UI with Bootstrap, secure payment processing, and admin dashboard for managing bookings.</p>
+                            
+                            <div class="tech-list">
+                                <span class="tech-item">PHP</span>
+                                <span class="tech-item">JavaScript</span>
+                                <span class="tech-item">Bootstrap</span>
+                                <span class="tech-item">jQuery</span>
+                                <span class="tech-item">MySQL</span>
+                            </div>
+                            
+                            <button class="btn btn-visit">
+                                <i class="fas fa-external-link-alt me-2"></i>View Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                alt="Police Management DB" 
+                                class="project-image">
+                        </div>
+                        
+                        <div class="project-content">
+                            <h3>Police Management Database</h3>
+                            <p>A relational database system designed to manage police department records including cases, officers, evidence, and suspects. The system features complex queries, reporting functions, and a normalized database structure with proper relationships between entities.</p>
+                            
+                            <div class="tech-list">
+                                <span class="tech-item">SQL</span>
+                                <span class="tech-item">Database Design</span>
+                                <span class="tech-item">Normalization</span>
+                                <span class="tech-item">Stored Procedures</span>
+                            </div>
+                            
+                            <button class="btn btn-visit">
+                                <i class="fas fa-external-link-alt me-2"></i>View Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="img/WinUtil.png" 
+                                alt="HTML Tools" 
+                                class="project-image">
+                        </div>
+                        
+                        <div class="project-content">
+                            <h3>WinUtil</h3>
+                            <p>WinUtil is a customizable utility script toolkit designed for Windows system automation and maintenance. It streamlines common administrative tasks such as cleaning temp files, disabling telemetry, installing essential software, and applying system optimizations — all with a single click or command.</p>
+                            
+                            <div class="tech-list">
+                                <span class="tech-item">Power Shell</span>
+                                <span class="tech-item">ShellScript</span>
+                                <span class="tech-item">Maintenance</span>
+                                <span class="tech-item">Windows</span>
+                            </div>
+                            
+                            <button class="btn btn-visit">
+                                <i class="fas fa-external-link-alt me-2"></i>View Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="img/EnM.png" 
+                                alt="HTML Tools" 
+                                class="project-image">
+                        </div>
+                        
+                        <div class="project-content">
+                            <h3>Earth and Moon Visual Simulator</h3>
+                            <p>A visually engaging 3D simulation of the Earth-Moon system built with vanilla JavaScript. It demonstrates fundamental concepts in animation, rotation, and orbital mechanics using HTML5 Canvas and DOM manipulation. Ideal for educational or experimental use in astronomy visualizations.</p>
+                            
+                            <div class="tech-list">
+                                <span class="tech-item">HTML5</span>
+                                <span class="tech-item">CSS3</span>
+                                <span class="tech-item">JavaScript</span>
+                                <span class="tech-item">DOM Manipulation</span>
+                            </div>
+                            
+                            <button class="btn btn-visit">
+                                <i class="fas fa-external-link-alt me-2"></i>View Project
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Controls -->
+                    <div class="project-nav">
+                        <button class="nav-btn" onclick="navigateProject(-1)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="nav-btn" onclick="navigateProject(1)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-
-            
-            <!-- Navigation Controls - Inside gallery column -->
-            <div class="gallery-controls">
-                <button class="control-btn" onclick="navigateProject(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="control-btn" onclick="navigateProject(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </section>
 
