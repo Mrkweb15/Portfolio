@@ -510,19 +510,8 @@
         <section id="introduction" class="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 md:p-16 bg-gray-800 text-white relative overflow-hidden">
             <!-- Profile with floating tags -->
             <div class="relative w-64 h-64 md:w-96 md:h-96 animate-fadeIn">
-            <img src="img/Profile.jpg" alt="Profile Picture" class="rounded-full w-full h-full object-cover mx-auto shadow-xl border-4 border-white hover:border-blue-400 transition-all duration-300">
-        
-            <!-- Top right floating label (Frontend) -->
-            <div class="floating-tag absolute top-2 right-2 bg-blue-600 text-white text-sm md:text-base px-3 py-1 rounded-full shadow-lg flex items-center space-x-2" style="animation-delay: 0s;">
-                <i class="fas fa-code"></i>
-                <span>Frontend</span>
-            </div>
-        
-            <!-- Bottom left floating label (Backend) -->
-            <div class="floating-tag absolute bottom-2 left-2 bg-green-600 text-white text-sm md:text-base px-3 py-1 rounded-full shadow-lg flex items-center space-x-2" style="animation-delay: 1.5s;">
-                <i class="fas fa-database"></i>
-                <span>Backend</span>
-            </div>
+                <img src="img/Profile.jpg" alt="Profile Picture" class="rounded-full w-full h-full object-cover mx-auto shadow-xl border-4 border-white hover:border-blue-400 transition-all duration-300">
+    
             </div>
         
             <!-- Text content -->
@@ -695,15 +684,6 @@
                             </div>
                         </div>
                         
-                        <!-- Navigation Controls - Inside gallery column -->
-                        <div class="gallery-controls">
-                            <button class="control-btn" onclick="navigateProject(-1)">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="control-btn" onclick="navigateProject(1)">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
                     </div>
                     
                     <!-- Description Column - Self-contained -->
@@ -786,6 +766,17 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            
+            <!-- Navigation Controls - Inside gallery column -->
+            <div class="gallery-controls">
+                <button class="control-btn" onclick="navigateProject(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="control-btn" onclick="navigateProject(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </section>
 
